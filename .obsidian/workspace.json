@@ -1,0 +1,209 @@
+{
+  "main": {
+    "id": "dc603fbdb8ef82d6",
+    "type": "split",
+    "children": [
+      {
+        "id": "42892e449df067e6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "52f2227f97e78be6",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "9e1a142b504a5bc2",
+    "type": "split",
+    "children": [
+      {
+        "id": "41ffbe00e178d342",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "90f07a29bc10a378",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "2f170d1beba49b2e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "ea712c501abac13f",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "3b0b7a37987451d5",
+    "type": "split",
+    "children": [
+      {
+        "id": "72fb13bbd609c9dd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "24dff08f42c64f3f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "raw/Charm.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Charm"
+            }
+          },
+          {
+            "id": "d9a1202eeb42e986",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "raw/Charm.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Charm"
+            }
+          },
+          {
+            "id": "b46e870772926480",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "08a92796e79579e6",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "12382dacf559b260",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "raw/Charm.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Charm"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "52f2227f97e78be6",
+  "lastOpenFiles": [
+    "wiki/Wish.md",
+    "wiki/Soft Serve.md",
+    "wiki/Bubbles.md",
+    "wiki/Lip Gloss.md",
+    "wiki/VHS.md",
+    "wiki/Gum.md",
+    "wiki/Glow.md",
+    "wiki/Catwalk.md",
+    "wiki/Crush.md",
+    "wiki/Bubble Tea.md",
+    "wiki/Charmbracelet.md",
+    "Clippings/Charm.md",
+    "raw/Charm.md",
+    "Welcome.md",
+    "Clippings",
+    "README.md",
+    "wiki/indices/system_log.md",
+    "wiki/indices/master_index.md",
+    "CLAUDE.md",
+    "assets",
+    "outputs",
+    "wiki/indices",
+    "wiki",
+    "raw"
+  ]
+}
