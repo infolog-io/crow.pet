@@ -1,43 +1,80 @@
 # crow.pet
 
-crow.pet is a context-compiled agent package.
+![crow.pet architectural hero image](assets/crow-pet-hero.png)
+
+**crow.pet is a context-compiled agent package.**
 
 An LLM harness points at this folder and uses its context window as the compiler. The source language is portable markdown: skills, adapters, templates, rubrics, policies, examples, and bounded memory. The compiled output is agent behavior: task records, delegated work, verification, artifacts, and durable learning.
 
-This is the upstream software package version.
+crow.pet is built to stay thin, portable, and durable across future LLM harnesses.
 
-Information Logistics working memory belongs in `../il-crow.pet`.
+## What It Is
 
-It uses the Karpathy Compilation Pattern.
+crow.pet is a runtime-neutral agent operating system for folders.
 
-It is portable markdown with strict YAML front matter.
+It is not a hosted service, a vector database, or a single-model prompt. It is a markdown package that lets a harness such as Codex, Claude Code, OpenClaude, Cline, or another agent runtime load only the skills and context it needs, then produce useful work through that context window.
 
-Obsidian support lives behind adapters.
+The core pattern is simple:
 
-The Memory Garden (`/wiki/`) is a Karpathian LLM Wiki for durable ideas, concepts, sources, and synthesized thinking.
+1. A user asks for something.
+2. The orchestrator turns the ask into a task record.
+3. Skills provide behavior.
+4. Adapters translate into the active harness, tool, model, memory, or target runtime.
+5. The policy gate decides whether to check, ask, allow, or stop.
+6. The result becomes artifacts, answers, apps, docs, images, plans, or durable learning.
 
-## Package Shape
+## Core Primitives
 
-| Layer | Purpose |
-|-------|---------|
-| `skills/` | Canonical runtime-neutral behaviors. |
-| `adapters/` | Runtime, tool, channel, memory, capability binding, and target translation. |
-| `skills/*/templates/` | Common intermediate forms such as task records and handoffs. |
-| `rubric.md` and `contract.md` | Evaluation and acceptance checks. |
-| `wiki/` and `raw/` | Memory Garden inputs for context compilation. |
+| Primitive | Purpose |
+| --- | --- |
+| Skills | Runtime-neutral behaviors. |
+| Adapters | Runtime, tool, channel, memory, model, target, and capability translation. |
+| Task records | The common form for incoming work. |
+| Context capsules | Bounded task context selected from memory or source files. |
+| Handoff reports | The common form for completed delegated work. |
+| Contracts | Acceptance boundaries for a skill or adapter. |
+| Rubrics | Evaluation criteria for result quality. |
+| Policy gate | Permission checkpoint for reads, writes, external actions, and sensitive context. |
+| Capability Broker | Semantic ability binding before the concrete adapter is known. |
+| Memory Garden | Durable knowledge layer at `/wiki/`. |
 
-Current canonical skills cover orchestration, Codex delegation, Claude Desktop delegation, CI/CD, marketing, image generation, self-improvement, and Crow voice for token-efficient harness communication.
-
-## crow.pet Glossary
+## Glossary
 
 | Name | Technical referent |
-|------|---------------------|
+| --- | --- |
 | Memory Garden (`/wiki/`) | A Karpathian LLM Wiki for durable ideas, concepts, sources, and synthesized thinking. |
 | Garden Map (`wiki/indices/master_index.md`) | Index of Memory Garden concepts. |
 | Garden Ledger (`wiki/indices/system_log.md`) | Audit trail for Memory Garden operations. |
 | Crow Voice (`crow-pet-crow-voice`) | Token-efficient harness communication. |
 
-Core primitives keep their technical names: skills, adapters, task records, context capsules, handoff reports, contracts, rubrics, and the policy gate.
+Technical primitive names stay stable: skills, adapters, task records, context capsules, handoff reports, contracts, rubrics, and the policy gate.
+
+## Package Shape
+
+| Layer | Purpose |
+| --- | --- |
+| `skills/` | Canonical runtime-neutral behaviors and workflows. |
+| `adapters/` | Runtime, tool, channel, memory, capability binding, and target translation. |
+| `skills/*/templates/` | Common intermediate forms such as task records and handoffs. |
+| `contract.md` and `rubric.md` | Acceptance checks and evaluation criteria. |
+| `wiki/` and `raw/` | Memory Garden inputs for context compilation. |
+| `outputs/` | Generated artifacts and synthesized results. |
+| `assets/` | Images and visual assets used by the package. |
+| `plans/` | Adoption and migration plans. |
+
+Current canonical skills cover orchestration, Codex delegation, Claude Desktop delegation, CI/CD, marketing, image generation, self-improvement, and Crow Voice.
+
+## Progressive Disclosure
+
+Load the smallest useful unit first.
+
+Start with root `SKILL.md` files. Load workflows, templates, references, contracts, rubrics, examples, and policies only when the selected skill says the task needs them.
+
+Use `skills/skill-map.md` as a derived semantic routing map. The source of truth remains the root `SKILL.md` files.
+
+Use context capsules for task context. Do not bulk-load memory, wiki folders, transcripts, or raw sources by default.
+
+Do not add a vector database, embedding index, or hidden retrieval layer for v1 routing.
 
 ## Capability Binding
 
@@ -49,49 +86,23 @@ The broker binds those requests to available adapters such as MCP gateways, brow
 
 Prefer specific APIs, CLIs, connectors, and tool adapters before generic browser or desktop automation.
 
-## Directory Structure
+## Memory Garden
 
-| Directory | Purpose |
-|-----------|---------|
-| `/skills/` | Canonical skills and workflows. |
-| `/adapters/` | Tool-specific translation, memory selection, and target exports. |
-| `/raw/` | Immutable source files. Drop web clippings, PDFs, and images here. |
-| `/wiki/` | Memory Garden: compiled knowledge base. The active agent owns these files. |
-| `/wiki/indices/` | Garden Map, Garden Ledger, and summaries. |
-| `/outputs/` | Synthesized reports, QA reports, Marp slide decks, query answers. |
-| `/assets/` | Local images referenced by wiki pages. |
-| `/adapters/memory/` | Bounded recall rules for agents and native memory tools. |
-| `/adapters/tools/obsidian.md` | Optional Obsidian vault adapter. |
-| `/plans/` | Adoption and migration plans. |
+The Memory Garden (`/wiki/`) is crow.pet's Karpathian LLM Wiki.
 
-## Operations
+Markdown is the map, not the warehouse. Use indexes, source manifests, and context capsules. Keep raw sources and full transcripts out of hot context unless the task requires them.
 
-| Command | What it does |
-|---------|--------------|
-| **Ingest** | Reads new files in `/raw/`, creates Memory Garden entries, updates the Garden Map. |
-| **Query** | Searches the Memory Garden, synthesizes an answer, saves output, reinforces concept pages. |
-| **Lint** | Scans for broken links, missing YAML, contradictions. Generates a QA report. |
+Use Obsidian through adapters. Do not make Obsidian syntax a core memory requirement.
 
-## How to Use
+## How To Use
 
-1. Add source material to `/raw/`.
-2. Ask the active agent to "ingest" the new files.
-3. Ask questions. The agent searches the Memory Garden (`/wiki/`) and writes answers to `/outputs/`.
-4. Run "lint" periodically to catch gaps and contradictions.
-
-## Memory Shape
-
-Markdown is the map, not the warehouse.
-
-Use indexes, source manifests, and context capsules.
-
-Do not paste full user profiles, identity files, or transcripts into tasks.
-
-## Obsidian
-
-Use Obsidian through the adapter.
-
-Do not make Obsidian syntax a core memory requirement.
+1. Point an LLM harness at this folder.
+2. Load `AGENTS.md` and the relevant root `SKILL.md`.
+3. Use `skills/skill-map.md` to select the smallest useful skill set.
+4. Attach a context capsule only when memory affects execution.
+5. Let adapters translate to the active harness, model, tool, target, or memory surface.
+6. Evaluate results with the relevant contract and rubric.
+7. Promote durable learning into skills, rubrics, contracts, policies, or the Memory Garden.
 
 ## Schema
 
