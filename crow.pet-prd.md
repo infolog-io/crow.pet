@@ -193,6 +193,24 @@ The root `SKILL.md` must point to any supporting files.
 
 Every support file must trace to a skill purpose, contract, or evaluation.
 
+### Progressive Disclosure and Semantic Routing
+
+Root `SKILL.md` files are the first load unit.
+
+Workflows, templates, references, contracts, rubrics, examples, and policies load only when the selected skill says they are needed.
+
+Each canonical `SKILL.md` must declare dependency edges.
+
+Supported edge types are `routes_to`, `delegates_to`, `uses_adapter`, `loads_context`, `evaluates_with`, and `promotes_to`.
+
+`skills/skill-map.md` is a derived semantic routing map.
+
+The source of truth remains the root `SKILL.md` files.
+
+The skill map helps harnesses choose the smallest useful skill set before loading support files.
+
+Skill routing must not require a vector database, embedding index, or hidden retrieval layer in v1.
+
 ### Stable Core, Swappable Adapters
 
 Runtime differences must live under `adapters/`.
@@ -265,7 +283,7 @@ User facts must be included only when they change execution.
 
 Obsidian must remain optional.
 
-The core wiki must be portable markdown.
+The Memory Garden (`/wiki/`) must be portable markdown.
 
 Obsidian syntax is allowed only for Obsidian-targeted output.
 
@@ -452,6 +470,10 @@ It supports memory adapters.
 
 It supports orchestration pattern adapters.
 
+It supports tool adapters.
+
+It supports semantic capability binding through the Capability Broker pattern.
+
 OpenClaw is one harness adapter.
 
 Codex CLI is one harness adapter.
@@ -464,7 +486,31 @@ The adapter layer cannot redefine skill folder structure.
 
 Obsidian is one tool adapter.
 
-### 2a. Memory Adapter Layer
+Browser automation and MCP gateways are tool adapters behind the Capability Broker.
+
+ACE-style local app control surfaces are adapter surfaces behind the Capability Broker, not privileged core dependencies.
+
+### 2a. Capability Broker Layer
+
+The Capability Broker binds semantic needs to runtime adapters.
+
+Skills and future Agent Assembly roles can request capabilities such as `web_research`, `browser_control`, `deploy_inspect`, `repo_read`, `visual_understanding`, `external_write`, and `tool_execution`.
+
+The broker selects available adapters, MCP gateways, browser automation, CLI/API tools, harness-native tools, local app surfaces, or LLM capability profiles.
+
+The broker must prefer specific APIs, CLIs, connectors, and tool adapters before generic browser or desktop automation.
+
+The broker must create task-local capability bindings.
+
+It must not add a database, daemon, hidden retrieval layer, or hardcoded global tool registry.
+
+Model needs are one capability family.
+
+Agent roles should request `reasoning`, `vision_language`, `small_local`, `tool_action`, `code_generation`, or `multimodal_grounding` rather than hardcoding model-family acronyms.
+
+Repeated useful bindings can be promoted through Self-Improvement into durable adapters, skills, rubrics, contracts, or Memory Garden notes.
+
+### 2b. Memory Adapter Layer
 
 The memory adapter layer isolates recall behavior.
 
@@ -749,6 +795,7 @@ adapters/
     openclaude.md
     user-context.md
   patterns/
+    capability-broker.md
     planner-generator-evaluator.md
     public-export-obfuscation.md
     self-improvement-os.md
@@ -768,7 +815,9 @@ adapters/
     openclaude.md
     obsidian-skills.md
   tools/
+    browser.md
     github.md
+    mcp-gateway.md
     obsidian.md
     vercel.md
     image-generation.md
@@ -821,6 +870,15 @@ skills/crow-pet-cicd/
     fix-ci.md
   examples/
     ci-task.md
+
+skills/crow-pet-crow-voice/
+  SKILL.md
+  contract.md
+  rubric.md
+  workflows/
+    compress-response.md
+  examples/
+    crow-voice-task.md
 
 skills/crow-pet-marketing/
   SKILL.md
@@ -1007,6 +1065,8 @@ memory_updates:
 - The system must support LLM adapters.
 - The system must support memory adapters.
 - The system must support pattern adapters.
+- The system must support tool adapters.
+- The system must support the Capability Broker pattern for semantic capability binding.
 - Each adapter must declare required permissions.
 - Each adapter must include failure detection.
 - Each adapter must map to the common task record.
@@ -1032,6 +1092,9 @@ memory_updates:
 - The system must support Claude Desktop through a bridge.
 - The system must support future local app adapters.
 - The system must support Obsidian as an optional tool adapter.
+- The system must support browser automation as an optional tool adapter.
+- The system must support MCP gateways as optional tool adapters.
+- Browser automation, MCP gateways, and ACE-style local app control must sit behind the Capability Broker when selected by semantic capability need.
 - Local app adapters must declare required permissions.
 - Local app adapters must include failure detection.
 
@@ -1154,6 +1217,7 @@ It must track verification evidence per task.
 
 - Telegram intake for approved users.
 - Adapter folder for channels, harnesses, LLMs, tools, and patterns.
+- Capability Broker pattern for semantic adapter binding.
 - Memory adapter folder for bounded recall and native memory systems.
 - OpenClaw adapter as one runtime target.
 - Hermes and OpenClaude memory behavior documented as adapters.
@@ -1191,6 +1255,8 @@ Acceptance:
 - `adapters/` contains channel, harness, LLM, memory, tool, and pattern folders.
 - `adapters/` contains context capsule rules.
 - Each adapter follows the shared adapter headings.
+- Capability Broker is represented as a pattern adapter.
+- Browser and MCP gateways are represented as tool adapters.
 - Obsidian is represented as a tool and memory adapter.
 - OpenClaw is represented as a harness adapter.
 - Runtime swaps do not require changes under `skills/`.

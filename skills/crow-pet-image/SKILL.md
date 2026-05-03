@@ -18,6 +18,22 @@ Use this skill for image generation and editing.
 7. Store prompts and outputs.
 8. Ask before external publishing.
 
+## Progressive Disclosure
+
+Load `templates/image-brief.md` only for image generation or editing.
+
+Load `workflows/generate-image.md` only when producing drafts.
+
+Load `examples/image-task.md` only for examples, tests, or target export.
+
+Load `contract.md` and `rubric.md` only for acceptance or evaluation.
+
+## Dependency Edges
+
+- `uses_adapter`: `adapters/tools/image-generation.md`.
+- `loads_context`: context capsule when brand constraints or prior image memory affects the brief.
+- `evaluates_with`: `contract.md`, `rubric.md`.
+
 ## Rules
 
 - Never claim generated imagery is real photography.

@@ -16,7 +16,7 @@ They do not own the canonical skill tree.
 
 Markdown files stay navigational.
 
-Large records stay in raw sources, archives, databases, or providers.
+Large records stay in raw sources, archives, provider stores, or external systems.
 
 Every selected excerpt needs a source and a reason.
 

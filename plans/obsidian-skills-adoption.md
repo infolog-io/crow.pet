@@ -6,7 +6,7 @@ Adopt useful Obsidian agent patterns without making Obsidian core.
 
 Obsidian is a renderer, editor, and vault surface.
 
-The LLM wiki remains portable markdown and structured memory.
+The Memory Garden (`/wiki/`) remains a Karpathian LLM Wiki: portable markdown and structured memory.
 
 ## Source
 

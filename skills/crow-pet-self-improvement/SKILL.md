@@ -17,6 +17,22 @@ Use this skill to make crow.pet need less human interaction over time.
 6. Ask before lowering approval levels.
 7. Record before and after behavior notes.
 
+## Progressive Disclosure
+
+Load `workflows/self-improve.md` when processing a completed task, correction, failure, or `/learn` note.
+
+Load only the matching file under `memory/` for the learning type.
+
+Load `templates/evaluation-report.md` only when writing or checking an evaluation report.
+
+Load `contract.md` and `rubric.md` only for acceptance or evaluation.
+
+## Dependency Edges
+
+- `promotes_to`: skill update, rubric update, contract update, policy proposal, or Memory Garden note.
+- `loads_context`: context capsule when task history or owner feedback affects the learning.
+- `evaluates_with`: `contract.md`, `rubric.md`.
+
 ## Rules
 
 - Do not remove safety gates.

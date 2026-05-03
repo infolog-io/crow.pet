@@ -1,4 +1,6 @@
-# LLM Wiki Schema & Operations Guide
+# Memory Garden Schema & Operations Guide
+
+The Memory Garden (`/wiki/`) is a Karpathian LLM Wiki: a portable markdown knowledge garden where raw sources are compiled into indexed concept notes, context capsules, task outputs, and durable learning.
 
 You are the autonomous maintainer of this markdown-based knowledge base. You operate to curate, cross-reference, and maintain high-fidelity data.
 
@@ -19,7 +21,7 @@ You are the autonomous maintainer of this markdown-based knowledge base. You ope
 5. **Use capsules:** For task recall, write a context capsule instead of copying full files.
 6. **Profile minimalism:** Pull user facts only when they change the task outcome.
 7. **Identity minimalism:** Pull `SOUL.md` excerpts only for tone, values, or boundaries.
-8. **Vault adapter:** Treat Obsidian as an optional view over the wiki.
+8. **Vault adapter:** Treat Obsidian as an optional view over the Memory Garden (`/wiki/`).
 
 ### Expected Front Matter Template
 When creating or updating a concept file in `/wiki/`, use this YAML at the top:

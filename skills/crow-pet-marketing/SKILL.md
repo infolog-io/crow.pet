@@ -17,6 +17,23 @@ Use this skill for marketing work.
 6. Ask before publishing externally.
 7. Store reusable examples.
 
+## Progressive Disclosure
+
+Load `reference/brand-skill-map.md` only for branded work.
+
+Load `workflows/create-marketing-asset.md` only for campaign or asset production.
+
+Load `examples/marketing-task.md` only for examples, tests, or target export.
+
+Load `contract.md` and `rubric.md` only for acceptance or evaluation.
+
+## Dependency Edges
+
+- `delegates_to`: `crow-pet-image` when visual assets are required.
+- `uses_adapter`: selected channel or tool adapters only after policy allows external publishing or delivery.
+- `loads_context`: context capsule when brand, audience, or campaign memory affects the artifact.
+- `evaluates_with`: `contract.md`, `rubric.md`.
+
 ## Rules
 
 - Use approved brand skills when available.
