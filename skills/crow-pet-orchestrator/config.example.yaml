@@ -1,0 +1,8 @@
+task_root: outputs/tasks
+memory_root: skills/crow-pet-self-improvement/memory
+context_capsule_root: outputs/context-capsules
+default_channel_adapter: adapters/channels/telegram.md
+default_memory_adapter: adapters/memory/markdown-bounded.md
+default_pattern_adapter: adapters/patterns/planner-generator-evaluator.md
+approval_policy: skills/crow-pet-orchestrator/policies/approval-policy.md
+risk_matrix: skills/crow-pet-orchestrator/policies/risk-matrix.md

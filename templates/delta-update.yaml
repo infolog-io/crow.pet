@@ -1,0 +1,18 @@
+# Delta Update Template
+schema_version: "0.1"
+delta_id: D-0000
+task_id: T-0000
+delta_type: memory_update # memory_update | playbook_update | skill_update | rubric_update | contract_update | policy_update
+target_file: playbooks/marketing.md
+target_section: STRATEGIES & INSIGHTS
+operation: add # add | update | increment_helpful | increment_harmful | mark_for_review | propose
+evidence:
+  - source: evaluation_report
+    summary: Output was accurate but too generic.
+proposed_content: >
+  [specificity-0001] helpful=1 harmful=0 :: Describe concrete product behavior before using category labels.
+approval_required: false
+risk_level: 0
+rollback:
+  - remove bullet specificity-0001
+status: proposed # proposed | applied | rejected | needs-human

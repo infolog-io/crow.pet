@@ -1,0 +1,18 @@
+schema_version: "0.1"
+template: templates/delta-update.yaml
+delta_id: D-DEMO-0001
+task_id: T-DEMO-0001
+delta_type: playbook_update
+target_file: playbooks/marketing.md
+target_section: STRATEGIES & INSIGHTS
+operation: increment_helpful
+evidence:
+  - source: examples/demo-marketing-trace/07-evaluation-report.md
+    summary: Launch copy passed because it described concrete package contents before broader category language.
+proposed_content: >
+  Increment helpful count for [specificity-0001].
+approval_required: false
+risk_level: 0
+rollback:
+  - decrement helpful count for specificity-0001
+status: proposed

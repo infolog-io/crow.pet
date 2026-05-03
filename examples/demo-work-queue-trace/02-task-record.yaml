@@ -1,0 +1,26 @@
+schema_version: "0.1"
+id: T-WQ-DEMO-0001
+created_at: "2026-05-03T00:00:00-07:00"
+requested_by: public-demo
+source_channel: local-markdown
+status: running
+risk_level: 0
+goal: Build a tiny landing page section explaining the crow.pet SPEC.MD build loop.
+success_criteria:
+  - Produce one self-contained HTML snippet.
+  - Mention Version 0.1 spec/prototype behavior.
+  - Avoid implying a live runner or daemon exists.
+assigned_role: crow-pet-orchestrator
+apps: []
+adapters:
+  - adapters/patterns/capability-broker.md
+  - adapters/patterns/work-queue.md
+  - adapters/harnesses/codex-cli.md
+context_capsules: []
+repos: []
+artifacts:
+  - examples/demo-work-queue-trace/07-artifact.md
+approvals: []
+verification:
+  - examples/demo-work-queue-trace/08-verification.md
+memory_updates: []

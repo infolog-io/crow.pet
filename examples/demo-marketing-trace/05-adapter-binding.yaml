@@ -1,0 +1,24 @@
+schema_version: "0.1"
+task_id: T-DEMO-0001
+requested_capabilities:
+  - local_markdown_context
+  - marketing_copy_generation
+  - evaluation
+candidate_adapters:
+  - adapter: adapters/memory/markdown-bounded.md
+    capability: local_markdown_context
+    permission_level: 0
+  - adapter: adapters/patterns/planner-generator-evaluator.md
+    capability: evaluation
+    permission_level: 0
+selected_adapters:
+  - adapters/memory/markdown-bounded.md
+  - adapters/patterns/planner-generator-evaluator.md
+not_selected:
+  - adapter: adapters/tools/browser.md
+    reason: no web research requested
+  - adapter: adapters/tools/mcp-gateway.md
+    reason: no MCP surface required
+  - adapter: adapters/tools/github.md
+    reason: no repo write or issue/PR action requested
+verification: adapter choices are local, read-only, and public-safe

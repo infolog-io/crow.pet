@@ -1,0 +1,15 @@
+schema_version: "0.1"
+id: T-DEMO-SKILL-ARCH-001
+status: active
+risk_level: low
+goal: Choose a reusable execution architecture for a research-to-outreach workflow.
+success_criteria:
+  - Execution mode is explicit.
+  - Context loading is bounded.
+  - Stage outputs are compact.
+  - External sending remains out of scope.
+selected_skill: crow-pet-skill-architect
+selected_adapters:
+  - adapters/patterns/execution-architecture.md
+  - adapters/patterns/capability-broker.md
+policy_decision: Silent

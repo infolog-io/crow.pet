@@ -1,0 +1,28 @@
+schema_version: "0.1"
+id: C-DEMO-0001
+task_id: T-DEMO-0001
+created_at: "2026-05-03T00:00:00-07:00"
+source_adapter: adapters/memory/markdown-bounded.md
+token_budget: 800
+sources:
+  - kind: memory
+    path: README.md
+    selector: "top positioning and status"
+    sensitivity: public
+  - kind: memory
+    path: playbooks/marketing.md
+    selector: "STRATEGIES & INSIGHTS"
+    sensitivity: public
+included:
+  user_profile: []
+  identity_excerpt: []
+  project_memory:
+    - crow.pet is a context-compiled agent package.
+    - Version 0.1 is a spec/prototype, not a packaged runtime.
+  wiki_context: []
+  provider_context: []
+excluded:
+  - source: docs/reviews/feedback-one-self-review.md
+    reason: local review source material, not public demo context
+redactions: []
+expires_after: task

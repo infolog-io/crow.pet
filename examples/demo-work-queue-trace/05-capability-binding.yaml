@@ -1,0 +1,22 @@
+schema_version: "0.1"
+task_id: T-WQ-DEMO-0001
+work_item_id: W-WQ-DEMO-0001
+requested_capabilities:
+  - code_generation
+  - local_markdown_write
+candidate_adapters:
+  - adapter: adapters/harnesses/codex-cli.md
+    capability: code_generation
+    permission_level: 0
+  - adapter: adapters/patterns/work-queue.md
+    capability: lifecycle_tracking
+    permission_level: 0
+selected_adapters:
+  - adapters/patterns/work-queue.md
+  - adapters/harnesses/codex-cli.md
+not_selected:
+  - adapter: adapters/tools/github.md
+    reason: no issue or pull request action requested
+  - adapter: adapters/tools/browser.md
+    reason: no browser workflow requested
+verification: selected adapters are local/spec-layer and do not require a live runner

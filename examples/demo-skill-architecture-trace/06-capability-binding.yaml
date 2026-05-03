@@ -1,0 +1,18 @@
+schema_version: "0.1"
+task_id: T-DEMO-SKILL-ARCH-001
+architecture_id: ARCH-DEMO-001
+bindings:
+  - capability: web_research
+    selected_adapter: adapters/tools/browser.md
+    reason: public web research is enough for the simulated gather-signals stage
+    permission: Ask for authenticated browsing; Silent for public reads
+  - capability: execution_mapping
+    selected_adapter: adapters/patterns/execution-architecture.md
+    reason: composed-pipeline semantics need target-harness mapping
+    permission: Silent
+  - capability: evaluation
+    selected_adapter: skills/crow-pet-skill-architect/rubric.md
+    reason: architecture quality needs an explicit score
+    permission: Silent
+warnings:
+  - If the selected harness cannot isolate stages, use sequential stage handoff files in the same session.

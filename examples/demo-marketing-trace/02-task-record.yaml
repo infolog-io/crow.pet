@@ -1,0 +1,28 @@
+schema_version: "0.1"
+id: T-DEMO-0001
+created_at: "2026-05-03T00:00:00-07:00"
+requested_by: public-demo
+source_channel: local-markdown
+status: running
+risk_level: 0
+goal: Draft a short public launch blurb for crow.pet.
+success_criteria:
+  - Say crow.pet is a context-compiled agent package.
+  - Mention Version 0.1 is a spec/prototype.
+  - Avoid hype.
+  - Produce one concise paragraph.
+assigned_role: crow-pet-marketing
+apps: []
+adapters:
+  - adapters/patterns/planner-generator-evaluator.md
+  - adapters/memory/markdown-bounded.md
+context_capsules:
+  - examples/demo-marketing-trace/04-context-capsule.yaml
+repos: []
+artifacts:
+  - examples/demo-marketing-trace/06-artifact.md
+approvals: []
+verification:
+  - examples/demo-marketing-trace/07-evaluation-report.md
+memory_updates:
+  - examples/demo-marketing-trace/08-delta-update.yaml
